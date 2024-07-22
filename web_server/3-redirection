@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Script that configures a new Ubuntu machine with the following requirements:
+
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "This is Oreste from Holberton School :)" | sudo tee /var/www/html/index.html > /dev/null
+
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.github.com\/oreste-abizera permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
