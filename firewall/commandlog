@@ -1,0 +1,4 @@
+sudo nano /etc/ufw/before.rules
+sudo ufw allow 8080
+sudo service ufw restart
+sudo ufw enable
