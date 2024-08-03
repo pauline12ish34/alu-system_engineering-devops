@@ -1,3 +1,5 @@
-wapping port 8080 with 80
-sed -i  's/8080/80/g' /etc/nginx/sites-enabled/default
-service nginx start
+#!/usr/bin/env bash
+# This script configures Nginx to listen on port 80 of all active IPv4 IPs
+rm /etc/nginx/sites-enabled/default
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
